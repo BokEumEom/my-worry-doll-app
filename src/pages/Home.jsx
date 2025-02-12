@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.css';
 function Home() {
   const { worryScore, addWorry, resetWorry } = useWorryScore();
   const navigate = useNavigate();
-  const threshold = 50; // 임계치 값
+  const threshold = 10; // 임계치 값
 
   // 인형 클릭 시, 임계치 이상이면 명상 페이지로 전환
   const handleDollClick = () => {
