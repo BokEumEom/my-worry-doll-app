@@ -1,14 +1,4 @@
-/* src/styles/Meditation.module.css */
-
-.meditationContainer {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(135deg, var(--background-light) 0%, #e0f7fa 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* src/styles/MeditationModal.module.css */
 
 .modalOverlay {
   position: fixed;
@@ -51,12 +41,13 @@
   color: var(--text-color-light);
 }
 
+/* 수정: 이미지 크기를 줄이고 중앙 정렬 */
 .sessionImage {
   width: 100%;
-  max-width: 400px;
+  max-width: 250px;  /* 기존 400px에서 250px 정도로 축소 */
   height: auto;
-  margin: 1rem 0;
-  border-radius: 8px;
+  margin: 1rem auto; /* 중앙 정렬 */
+  display: block;
 }
 
 .timer {
@@ -112,5 +103,8 @@
   .endButton {
     font-size: 1rem;
     padding: 0.5rem 1rem;
+  }
+  .sessionImage {
+    max-width: 200px; /* 모바일에서는 더 축소 */
   }
 }

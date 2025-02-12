@@ -15,7 +15,7 @@ const meditationData = [
     duration: 300, // 5분
     description: "현재 순간에 집중하며 마음의 잡념을 내려놓는 명상입니다.",
     guidance: "편안한 자세로 앉아 몸의 감각, 생각, 호흡에 주의를 기울이세요. 떠오르는 생각들을 판단 없이 관찰하고 다시 호흡에 집중합니다.",
-    image: "/assets/meditation1.png"
+    image: "/assets/meditation1.webp"
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ const meditationData = [
     duration: 240, // 4분
     description: "자신과 타인에 대한 자애로운 마음을 키우는 명상입니다.",
     guidance: "마음속으로 자신에게 따뜻한 말을 건네고, 점차 그 마음을 가족, 친구, 그리고 모든 존재로 확장시켜보세요.",
-    image: "/assets/meditation1.png"
+    image: "/assets/meditation1.webp"
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ const meditationData = [
     duration: 150, // 2분 30초
     description: "감사하는 마음을 키워 긍정적인 에너지를 얻는 명상입니다.",
     guidance: "오늘 하루 감사했던 일들을 마음속으로 떠올리며, 그 감사의 감정을 온몸으로 느껴보세요.",
-    image: "/assets/meditation1.png"
+    image: "/assets/meditation1.webp"
   }
 ];
 

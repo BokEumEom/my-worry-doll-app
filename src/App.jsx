@@ -2,14 +2,13 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Meditation from './pages/Meditation'
+import './App.css'
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/meditation" element={<Meditation />} />
       </Routes>
     </Router>
   )
