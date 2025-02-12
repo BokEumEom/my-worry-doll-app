@@ -1,0 +1,107 @@
+/* src/styles/index.css */
+
+/* 새 폰트 등록: HakgyoansimMalgeunnalB (font-weight: 700) */
+@font-face {
+  font-family: 'HakgyoansimMalgeunnalB';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimMalgeunnalB.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* 전역 CSS 변수와 기본 스타일 */
+:root {
+  /* 기본 폰트 설정: 헤딩 등 굵은 텍스트에 우선 적용 */
+  --font-family: 'HakgyoansimMalgeunnalB', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --font-weight: 400;
+
+  /* 컬러 변수 */
+  --primary-color: #646cff;
+  --primary-color-hover: #535bf2;
+  --text-color-dark: rgba(255, 255, 255, 0.87);
+  --background-dark: #242424;
+
+  --text-color-light: #213547;
+  --background-light: #ffffff;
+
+  /* 버튼 관련 */
+  --button-color: #ffcc00;
+  --button-bg-dark: #1a1a1a;
+  --button-bg-light: #f9f9f9;
+  --button-border-radius: 8px;
+  --button-padding: 0.6em 1.2em;
+  --button-transition: border-color 0.25s;
+
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+
+  color-scheme: light dark;
+  color: var(--text-color-dark);
+  background-color: var(--background-dark);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 링크 스타일 */
+a {
+  font-weight: 500;
+  color: var(--primary-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--primary-color-hover);
+}
+
+/* Body 기본 스타일 */
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: inherit;
+  color: inherit;
+  font-family: var(--font-family);
+}
+
+/* 헤딩 */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* 버튼 */
+button {
+  border-radius: var(--button-border-radius);
+  border: 1px solid transparent;
+  padding: var(--button-padding);
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--button-bg-dark);
+  cursor: pointer;
+  transition: var(--button-transition);
+}
+button:hover {
+  border-color: var(--primary-color);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Light 모드 오버라이드 */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--text-color-light);
+    background-color: var(--background-light);
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: var(--button-bg-light);
+  }
+}

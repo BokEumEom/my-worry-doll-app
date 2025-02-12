@@ -1,0 +1,23 @@
+/* src/styles/Doll.module.css */
+
+.dollContainer {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.doll {
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.mist {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.5s ease-out, filter 0.5s ease-out;
+}
