@@ -12,10 +12,10 @@
 
 /* 이미지 사이즈 조절 및 가운데 정렬 */
 .dollImage {
-  max-width: 30%;   /* 부모 컨테이너의 너비의 30% 크기 */
-  height: auto;     /* 비율에 맞게 자동 조절 */
-  display: block;   /* block 요소로 설정하여 margin auto 적용 */
-  margin: 0 auto;   /* 좌우 자동 마진으로 가운데 정렬 */
+  max-width: 30%;      /* 기본 30% 크기, 필요 시 모바일에서 비율 변경 */
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .mist {
@@ -28,4 +28,11 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 0%, transparent 70%);
   pointer-events: none;
   transition: opacity 0.5s ease-out, filter 0.5s ease-out;
+}
+
+/* 모바일 최적화: 인형 이미지 크기 확대 (예: 40%로 조정) */
+@media (max-width: 480px) {
+  .dollImage {
+    max-width: 40%;
+  }
 }

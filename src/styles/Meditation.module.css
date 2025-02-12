@@ -4,7 +4,6 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  /* 배경에 전역 변수 활용 (light 모드) */
   background: linear-gradient(135deg, var(--background-light) 0%, #e0f7fa 100%);
   display: flex;
   align-items: center;
@@ -98,7 +97,7 @@
   transform: scale(1.05);
 }
 
-/* 반응형 조정 */
+/* 모바일 최적화 */
 @media (max-width: 480px) {
   .modalTitle {
     font-size: 2rem;
@@ -106,7 +105,8 @@
   .timer {
     font-size: 1.2rem;
   }
-  .description, .guidance {
+  .description,
+  .guidance {
     font-size: 1rem;
   }
   .endButton {

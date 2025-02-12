@@ -1,6 +1,6 @@
 /* src/styles/index.css */
 
-/* 새 폰트 등록: HakgyoansimMalgeunnalB (font-weight: 700) */
+/* 폰트 등록 */
 @font-face {
   font-family: 'HakgyoansimMalgeunnalB';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimMalgeunnalB.woff2') format('woff2');
@@ -10,7 +10,7 @@
 
 /* 전역 CSS 변수와 기본 스타일 */
 :root {
-  /* 기본 폰트 설정: 헤딩 등 굵은 텍스트에 우선 적용 */
+  /* 폰트 및 레이아웃 */
   --font-family: 'HakgyoansimMalgeunnalB', 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
   --line-height: 1.5;
   --font-weight: 400;
@@ -103,5 +103,16 @@ button:focus-visible {
   }
   button {
     background-color: var(--button-bg-light);
+  }
+}
+
+/* 모바일 최적화: 글자 크기 및 여백 약간 축소 */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  button {
+    font-size: 0.9em;
+    padding: 0.5em 1em;
   }
 }
