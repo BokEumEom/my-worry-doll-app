@@ -1,33 +1,36 @@
 /* src/styles/Home.module.css */
 
 .homeContainer {
+  position: relative;
+  z-index: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  background: linear-gradient(135deg, #e0f7fa 0%, var(--background-light) 100%);
+  background: none;
   min-height: 100vh;
+  overflow: hidden;
 }
 
+/* 백그라운드 비디오 스타일 */
+.bgVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+/* 나머지 스타일은 이전과 동일 */
 .header {
   width: 100%;
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: var(--text-color-light);
-  margin: 0;
-}
-
-.logo {
-  height: 80px;
-  margin-top: 1rem;
-}
-
-/* main 컨테이너: 헤더를 제외한 나머지 영역을 중앙에 배치 */
 .main {
   width: 100%;
   flex: 1;
@@ -37,23 +40,20 @@
   justify-content: center;
 }
 
-/* 인형을 감싸는 래퍼: 인형이 커지더라도 아래에 버튼이 겹치지 않도록 충분한 여백 확보 */
 .dollWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4rem;  /* 기존보다 여백을 늘려 인형이 커져도 버튼과 겹치지 않음 */
+  margin-bottom: 4rem;
 }
 
 .controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* 버튼 그룹이 인형 아래에 위치하도록 추가 여백 적용 */
   margin-top: 1rem;
 }
 
-/* 두 버튼을 묶는 그룹 (이미 버튼이 controls 내부에 있으므로 별도 스타일 적용) */
 .buttonGroup {
   display: flex;
   gap: 1rem;
@@ -79,17 +79,11 @@
 
 /* 모바일 최적화 */
 @media (max-width: 480px) {
-  .title {
-    font-size: 2.5rem;
-  }
-  .scoreText {
-    font-size: 1rem;
-  }
   .optionButton {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
   .dollWrapper {
-    margin-bottom: 2rem; /* 모바일에서는 약간 줄일 수 있음 */
+    margin-bottom: 2rem;
   }
 }

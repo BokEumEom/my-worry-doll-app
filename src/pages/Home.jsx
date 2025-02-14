@@ -14,7 +14,7 @@ function Home() {
   const [isPlayModalOpen, setIsPlayModalOpen] = useState(false);
   const threshold = 50; // 임계치 값
 
-  // 인형 클릭 시: 임계치 미만이면 점수 증가, 이상이면 두 버튼 표시
+  // 인형 클릭 시: worryScore가 임계치 미만이면 점수 증가, 이상이면 두 버튼 표시
   const handleDollClick = () => {
     if (worryScore < threshold) {
       addWorry(10);
@@ -35,28 +35,32 @@ function Home() {
     setShowButtons(false);
   };
 
-  // 모달 닫기 시: 명상 모달 닫기
+  // 모달 닫기 시: 명상 모달 닫기 후 worryScore 초기화
   const handleCloseMeditation = () => {
     setIsMeditationModalOpen(false);
     resetWorry();
   };
 
-  // 모달 닫기 시: 놀아주기 모달 닫기
+  // 모달 닫기 시: 놀아주기 모달 닫기 후 worryScore 초기화
   const handleClosePlay = () => {
     setIsPlayModalOpen(false);
-    // 필요시 worryScore 초기화 또는 다른 동작 추가
     resetWorry();
   };
 
   return (
     <div className={styles.homeContainer}>
+      {/* 백그라운드 비디오를 play.mp4 에셋으로 변경 */}
+      <video className={styles.bgVideo} autoPlay muted loop>
+        <source src="/assets/background.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
       <Header />
       <main className={styles.main}>
         <div className={styles.dollWrapper}>
           <Doll worryScore={worryScore} onClick={handleDollClick} />
         </div>
         <div className={styles.controls}>
-          {/* 두 버튼 표시 */}
           {showButtons && (
             <div className={styles.buttonGroup}>
               <button className={styles.optionButton} onClick={handleMeditation}>
