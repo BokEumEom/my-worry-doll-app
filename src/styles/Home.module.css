@@ -27,26 +27,30 @@
   margin-top: 1rem;
 }
 
-/* 수정: main 컨테이너가 남은 영역 전체를 차지하여 중앙 정렬 */
+/* main 컨테이너: 헤더를 제외한 나머지 영역을 중앙에 배치 */
 .main {
-  flex: 1; /* 헤더를 제외한 나머지 영역을 채움 */
+  width: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* 수직 중앙 정렬 */
+  justify-content: center;
 }
 
-/* dollWrapper는 인형 컴포넌트를 감싸며, 필요에 따라 추가 여백 설정 */
+/* 인형을 감싸는 래퍼: 인형이 커지더라도 아래에 버튼이 겹치지 않도록 충분한 여백 확보 */
 .dollWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 4rem;  /* 기존보다 여백을 늘려 인형이 커져도 버튼과 겹치지 않음 */
 }
 
 .controls {
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* 버튼 그룹이 인형 아래에 위치하도록 추가 여백 적용 */
+  margin-top: 1rem;
 }
 
 .scoreText {
@@ -60,7 +64,14 @@
   color: var(--primary-color);
 }
 
-.addButton {
+/* 두 버튼을 묶는 그룹 (이미 버튼이 controls 내부에 있으므로 별도 스타일 적용) */
+.buttonGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.optionButton {
   padding: var(--button-padding);
   font-size: 1.1rem;
   font-weight: 500;
@@ -72,7 +83,7 @@
   transition: background-color 0.25s, transform 0.25s;
 }
 
-.addButton:hover {
+.optionButton:hover {
   background-color: var(--primary-color);
   transform: scale(1.05);
 }
@@ -85,11 +96,11 @@
   .scoreText {
     font-size: 1rem;
   }
-  .addButton {
+  .optionButton {
     font-size: 1rem;
     padding: 0.5rem 1rem;
   }
   .dollWrapper {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem; /* 모바일에서는 약간 줄일 수 있음 */
   }
 }

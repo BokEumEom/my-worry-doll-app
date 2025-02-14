@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import meditationData from '../data/meditationData';
 import styles from '../styles/MeditationModal.module.css';
 

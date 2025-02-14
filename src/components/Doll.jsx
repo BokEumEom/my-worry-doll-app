@@ -22,7 +22,7 @@ function Doll({ worryScore, onClick }) {
           willChange: 'transform, opacity',
         }}
       >
-        <img src="/assets/doll-new.png" alt="Worry Doll" className={styles.dollImage} />
+        <img src="/assets/doll.png" alt="Worry Doll" className={styles.dollImage} />
       </div>
       <div
         className={styles.mist}

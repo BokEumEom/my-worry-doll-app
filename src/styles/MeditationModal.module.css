@@ -11,17 +11,21 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  /* 혹시 수평 스크롤이 생긴다면 hidden 처리 */
+  overflow-x: hidden;
 }
 
 .modalContent {
+  box-sizing: border-box; /* 내부 패딩 포함 계산 */
   background: var(--background-light);
   padding: 2rem;
   border-radius: 12px;
-  text-align: center;
-  width: 90%;
-  max-width: 500px;
+  text-align: center;    /* 기본적으로 뷰포트의 90% 폭 사용 */
   animation: fadeIn 0.5s ease-out;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* 수직 길이가 너무 길 경우 스크롤 가능하도록 (선택) */
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -41,12 +45,12 @@
   color: var(--text-color-light);
 }
 
-/* 수정: 이미지 크기를 줄이고 중앙 정렬 */
+/* 이미지 크기 제한 및 중앙 정렬 */
 .sessionImage {
   width: 100%;
-  max-width: 250px;  /* 기존 400px에서 250px 정도로 축소 */
+  max-width: 350px;
   height: auto;
-  margin: 1rem auto; /* 중앙 정렬 */
+  margin: 1rem auto;
   display: block;
 }
 
@@ -55,7 +59,6 @@
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
-
 .timer span {
   font-weight: bold;
 }
@@ -82,7 +85,6 @@
   cursor: pointer;
   transition: background-color 0.25s, transform 0.25s;
 }
-
 .endButton:hover {
   background-color: var(--primary-color);
   transform: scale(1.05);
@@ -105,6 +107,6 @@
     padding: 0.5rem 1rem;
   }
   .sessionImage {
-    max-width: 200px; /* 모바일에서는 더 축소 */
+    max-width: 300px; /* 모바일에서 더 축소 */
   }
 }
