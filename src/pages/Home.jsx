@@ -45,6 +45,7 @@ function Home() {
   const handleClosePlay = () => {
     setIsPlayModalOpen(false);
     // 필요시 worryScore 초기화 또는 다른 동작 추가
+    resetWorry();
   };
 
   return (

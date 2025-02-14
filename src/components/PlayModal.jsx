@@ -11,7 +11,7 @@ function PlayModal({ onClose }) {
           Your browser does not support the video tag.
         </video>
         <button className={styles.closeButton} onClick={onClose}>
-          모달 닫기
+          종료
         </button>
       </div>
     </div>
