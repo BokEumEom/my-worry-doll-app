@@ -3,41 +3,48 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Doll from '../components/Doll';
 import MeditationModal from '../components/MeditationModal';
+import PlayModal from '../components/PlayModal';
 import useWorryScore from '../hooks/useWorryScore';
 import styles from '../styles/Home.module.css';
 
 function Home() {
   const { worryScore, addWorry, resetWorry } = useWorryScore();
-  const [showButtons, setShowButtons] = useState(false); // 임계치 달성 시 두 버튼 표시
-  const [isModalOpen, setIsModalOpen] = useState(false); // 명상 모달 열림 상태
+  const [showButtons, setShowButtons] = useState(false); // 두 버튼 표시 여부
+  const [isMeditationModalOpen, setIsMeditationModalOpen] = useState(false);
+  const [isPlayModalOpen, setIsPlayModalOpen] = useState(false);
   const threshold = 50; // 임계치 값
 
-  // 인형 클릭 시, 임계치 미만이면 점수 증가 / 임계치 이상이면 두 버튼 표시
+  // 인형 클릭 시: 임계치 미만이면 점수 증가, 이상이면 두 버튼 표시
   const handleDollClick = () => {
     if (worryScore < threshold) {
       addWorry(10);
     } else {
-      // 임계치 이상이면 두 가지 버튼(명상하기, 놀아주기) 표시
       setShowButtons(true);
     }
   };
 
-  // '명상하기' 버튼 클릭 시 모달 오픈
+  // '명상하기' 버튼 클릭 시 모달 열기
   const handleMeditation = () => {
-    setIsModalOpen(true);
-    setShowButtons(false); // 버튼 숨김
+    setIsMeditationModalOpen(true);
+    setShowButtons(false);
   };
 
-  // '놀아주기' 버튼 클릭 시 다른 로직 (예시: 콘솔 출력)
+  // '놀아주기' 버튼 클릭 시 PlayModal 열기
   const handlePlay = () => {
-    console.log("인형과 놀아주기 동작 실행");
-    setShowButtons(false); // 버튼 숨김
+    setIsPlayModalOpen(true);
+    setShowButtons(false);
   };
 
-  // 모달 닫기(명상 종료 시 실행)
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
+  // 모달 닫기 시: 명상 모달 닫기
+  const handleCloseMeditation = () => {
+    setIsMeditationModalOpen(false);
     resetWorry();
+  };
+
+  // 모달 닫기 시: 놀아주기 모달 닫기
+  const handleClosePlay = () => {
+    setIsPlayModalOpen(false);
+    // 필요시 worryScore 초기화 또는 다른 동작 추가
   };
 
   return (
@@ -48,28 +55,24 @@ function Home() {
           <Doll worryScore={worryScore} onClick={handleDollClick} />
         </div>
         <div className={styles.controls}>
-          {/* 두 버튼 표시 여부 */}
-          {showButtons ? (
+          {/* 두 버튼 표시 */}
+          {showButtons && (
             <div className={styles.buttonGroup}>
-              <button
-                className={styles.optionButton}
-                onClick={handleMeditation}
-              >
+              <button className={styles.optionButton} onClick={handleMeditation}>
                 명상하기
               </button>
-              <button
-                className={styles.optionButton}
-                onClick={handlePlay}
-              >
+              <button className={styles.optionButton} onClick={handlePlay}>
                 놀아주기
               </button>
             </div>
-          ) : null}
+          )}
         </div>
       </main>
 
-      {/* 명상 모달이 열려있다면 표시 */}
-      {isModalOpen && <MeditationModal onClose={handleCloseModal} />}
+      {isMeditationModalOpen && (
+        <MeditationModal onClose={handleCloseMeditation} />
+      )}
+      {isPlayModalOpen && <PlayModal onClose={handleClosePlay} />}
     </div>
   );
 }

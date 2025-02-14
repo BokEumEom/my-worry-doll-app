@@ -53,17 +53,6 @@
   margin-top: 1rem;
 }
 
-.scoreText {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--text-color-light);
-}
-
-.scoreText span {
-  font-weight: bold;
-  color: var(--primary-color);
-}
-
 /* 두 버튼을 묶는 그룹 (이미 버튼이 controls 내부에 있으므로 별도 스타일 적용) */
 .buttonGroup {
   display: flex;

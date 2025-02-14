@@ -11,21 +11,23 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  /* 혹시 수평 스크롤이 생긴다면 hidden 처리 */
+  /* 불필요한 수평 스크롤을 막기 위해 */
   overflow-x: hidden;
 }
 
 .modalContent {
-  box-sizing: border-box; /* 내부 패딩 포함 계산 */
+  box-sizing: border-box; /* 패딩 포함 계산 */
   background: var(--background-light);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
-  text-align: center;    /* 기본적으로 뷰포트의 90% 폭 사용 */
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  /* 뷰포트 높이의 100%에서 여백을 뺀 값으로 제한 */
+  max-height: calc(100vh - 2rem);
+  overflow: hidden;  /* 스크롤 없도록 설정 */
   animation: fadeIn 0.5s ease-out;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  /* 수직 길이가 너무 길 경우 스크롤 가능하도록 (선택) */
-  max-height: 80vh;
-  overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -45,10 +47,10 @@
   color: var(--text-color-light);
 }
 
-/* 이미지 크기 제한 및 중앙 정렬 */
+/* 이미지가 너무 크게 나오지 않도록 조절 */
 .sessionImage {
   width: 100%;
-  max-width: 350px;
+  max-width: 250px;  /* 데스크탑에서 250px로 제한 */
   height: auto;
   margin: 1rem auto;
   display: block;
@@ -59,6 +61,7 @@
   margin-bottom: 1rem;
   color: var(--primary-color);
 }
+
 .timer span {
   font-weight: bold;
 }
@@ -85,6 +88,7 @@
   cursor: pointer;
   transition: background-color 0.25s, transform 0.25s;
 }
+
 .endButton:hover {
   background-color: var(--primary-color);
   transform: scale(1.05);
@@ -107,6 +111,6 @@
     padding: 0.5rem 1rem;
   }
   .sessionImage {
-    max-width: 300px; /* 모바일에서 더 축소 */
+    max-width: 200px;
   }
 }
