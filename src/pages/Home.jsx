@@ -50,8 +50,14 @@ function Home() {
   return (
     <div className={styles.homeContainer}>
       {/* 백그라운드 비디오를 play.mp4 에셋으로 변경 */}
-      <video className={styles.bgVideo} autoPlay muted loop>
-        <source src="/assets/background.mp4" type="video/mp4" />
+      <video
+        className={styles.bgVideo}
+        autoPlay
+        muted
+        loop
+        playsInline  // iOS에서 자동 재생을 위해 필요
+      >
+        <source src="/assets/play.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
