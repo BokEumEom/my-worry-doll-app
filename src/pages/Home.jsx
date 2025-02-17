@@ -57,7 +57,7 @@ function Home() {
         loop
         playsInline  // iOS에서 자동 재생을 위해 필요
       >
-        <source src="/assets/play.mp4" type="video/mp4" />
+        <source src="/assets/play00.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       
